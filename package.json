@@ -1,0 +1,25 @@
+{
+  "name": "perry",
+  "description": "PHP style querystring parser/stringifier",
+  "version": "0.0.1",
+  "keywords": ["php","querystring","parser","stringify"],
+  "maintainers": [{
+    "name": "Marc Greenstock",
+    "email": "hello@marcgreenstock.com",
+    "web": "http://marcgreenstock.com"
+  }],
+  "contributors": [{
+    "name": "Marc Greenstock",
+    "email": "hello@marcgreenstock.com",
+    "web": "http://marcgreenstock.com"
+  }],
+  "licenses": [{
+    "type": "Creative Commons",
+    "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+  }],
+  "repositories": [{
+    "type": "git",
+    "url": "http://github.com/marcgreenstock/node_perry"
+  }],
+  "dependencies": []
+}

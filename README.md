@@ -25,7 +25,7 @@ Usage:
 
 Test:
 
-  node test/test-perry.js
+    node test/test-perry.js
   
 To do:
 

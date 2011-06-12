@@ -1,4 +1,5 @@
-== Perry
+Perry
+===
 
 PHP style querystring parser and stringifier
 

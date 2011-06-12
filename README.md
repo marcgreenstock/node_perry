@@ -9,15 +9,16 @@ Install:
 
 Usage:
 
-    var perry = require('perry')
+    var perry = require('perry');
     var string = perry.stringify({
       foo: {
         first: {
           second: {
             third: 'bar'
           },
-          another: [0,1,2,3,42]
+          another: [23,42]
         }
       }
     });
+    // foo[first][second][third]=bar&foo[first][another][0]=23&foo[first][another][1]=42
     var obj = perry.parse(string);

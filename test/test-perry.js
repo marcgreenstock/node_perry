@@ -9,7 +9,8 @@ var testCases = [
   ['foo[0]=zero&foo[1]=one&foo[2]=two',{'foo':['zero','one','two']}],
   ['foo[bar]=foobar&foobar=1234567890&ubar[x]=0',{'foo':{'bar':'foobar'},'foobar':1234567890,'ubar':{'x':0}}],
   ['foo[first][second][third]=123&foo[first][second][forth]=456',{'foo':{'first':{'second':{'third':123,'forth':456}}}}],
-  ['foo[0]=abc&foo[1]=xyz',{'foo':['abc','xyz']}]
+  ['foo[0]=abc&foo[1]=xyz',{'foo':['abc','xyz']}],
+  ['foo[first][second][third]=bar&foo[first][another][0]=23&foo[first][another][1]=42',{foo:{first:{second:{third:'bar'},another:[23,42]}}}]
 ];
 
 testCases.forEach(function(testCase,index) {

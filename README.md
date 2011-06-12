@@ -1,7 +1,7 @@
 Perry
 ===
 
-PHP style querystring parser and stringifier
+PHP style query string parser and generator
 
 Install:
 
@@ -22,3 +22,12 @@ Usage:
     });
     // foo[first][second][third]=bar&foo[first][another][0]=23&foo[first][another][1]=42
     var obj = perry.parse(string);
+
+Test:
+
+  node test/test-perry.js
+  
+To do:
+
+* Add more tests
+* Some more escaping / unescaping

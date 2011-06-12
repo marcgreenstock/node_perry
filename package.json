@@ -1,8 +1,8 @@
 {
   "name": "perry",
-  "description": "PHP style querystring parser/stringifier",
+  "description": "PHP style query string parser generator",
   "version": "0.0.1",
-  "keywords": ["php","querystring","parser","stringify"],
+  "keywords": ["php","querystring","query string","parser","generator"]
   "maintainers": [{
     "name": "Marc Greenstock",
     "email": "hello@marcgreenstock.com",

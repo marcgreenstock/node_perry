@@ -1,27 +1,17 @@
 {
   "name": "perry",
-  "description": "PHP style query string parser generator",
-  "version": "0.0.1",
-  "keywords": ["php","querystring","query string","parser","generator"]
-  "maintainers": [{
-    "name": "Marc Greenstock",
-    "email": "hello@marcgreenstock.com",
-    "web": "http://marcgreenstock.com"
-  }],
-  "contributors": [{
-    "name": "Marc Greenstock",
-    "email": "hello@marcgreenstock.com",
-    "web": "http://marcgreenstock.com"
-  },{
-    "name": "@mkorfmann"
-  }],
+  "description": "PHP style query string parser and generator",
+  "version": "0.0.5",
+  "keywords": ["php","querystring","query string","parser","generator"],
+  "engines": { "node": "*" },
+  "main": "index",
+  "author": "Marc Greenstock <hello@marcgreenstock.com> (http://marcgreenstock.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/marcgreenstock/node_perry.git"
+  },
   "licenses": [{
     "type": "Creative Commons",
     "url": "http://creativecommons.org/licenses/by-sa/3.0/"
   }],
-  "repositories": [{
-    "type": "git",
-    "url": "http://github.com/marcgreenstock/node_perry"
-  }],
-  "dependencies": []
 }

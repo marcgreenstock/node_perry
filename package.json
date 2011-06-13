@@ -1,7 +1,7 @@
 {
   "name": "perry",
   "description": "PHP style query string parser and generator",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "keywords": ["php","querystring","query string","parser","generator"],
   "engines": { "node": "*" },
   "main": "index",

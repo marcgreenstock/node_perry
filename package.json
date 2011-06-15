@@ -1,8 +1,8 @@
 {
   "name": "perry",
-  "description": "PHP style query string parser and generator",
-  "version": "0.0.7",
-  "keywords": ["php","querystring","query string","parser","generator"],
+  "description": "Multi-dimensional query string parser and generator",
+  "version": "0.0.8",
+  "keywords": ["multi-dimension","querystring","parser","generator"],
   "engines": { "node": "*" },
   "main": "index",
   "author": "Marc Greenstock <hello@marcgreenstock.com> (http://marcgreenstock.com)",

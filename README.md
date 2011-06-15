@@ -1,7 +1,7 @@
 Perry
 ===
 
-PHP style query string parser and generator
+Multi-dimensional query string parser and generator
 
 Install:
 
@@ -30,4 +30,3 @@ Test:
 To do:
 
 * Add more tests
-* Some more escaping / unescaping

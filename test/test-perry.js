@@ -1,4 +1,5 @@
 var assert = require('assert');
+var util = require('util');
 var perry = require('../lib/perry');
 
 var querystringTestCases = [
@@ -75,6 +76,22 @@ var querystringTestCases = [
     expect: 'foo[2]=nue&foo[4]=nue&foo[7]=nue',
     object: {'foo':{'2':'nue','4':'nue','7':'nue'}}
   },{
+    parse: 'foo[]=1&bar[]=2',
+    expect: 'foo[0]=1&bar[0]=2',
+    object: {'foo':[1],'bar':[2]}
+  },{
+    parse: 'foo[]=0&foo[]=1',
+    expect: 'foo[0]=0&foo[1]=1',
+    object: {'foo':[0,1]}
+  },{
+    parse: 'foo[]=0&foo[]=1&bar[]=0&foo[]=2',
+    expect: 'foo[0]=0&foo[1]=1&foo[2]=2&bar[0]=0',
+    object: {'foo':[0,1,2],'bar':[0]}
+  },{
+    parse: 'foo[][bar]=0&foo[][meh]=1',
+    expect: 'foo[0][bar]=0&foo[1][meh]=1',
+    object: {'foo':[{'bar':0},{'meh':1}]}
+  },{
     parse: 'foo:bar',
     expect: 'foo:bar',
     object: {'foo': 'bar'},
@@ -99,6 +116,12 @@ var querystringTestCases = [
     expect: 'foo:baz%3Abar',
     object: {'foo': 'baz:bar'},
     params: [';',':','(',')']
+  },{
+    expect: 'regexp=%2F.%2Fg',
+    object: {regexp: /./g}
+  },{
+    expect: 'regexp=%2F.%2Fg',
+    object: {regexp: new RegExp('.', 'g')}
   }
 ];
 
@@ -107,37 +130,47 @@ querystringTestCases.forEach(function(testCase,index) {
 
   try {
     assert.strictEqual(
-      testCase.expect,
       perry.stringify.apply(this,(function() {
         var params = [testCase.object];
         testCase.params.forEach(function(param) {
           params.push(param);
         });
         return params;
-      })())
+      })()),
+      testCase.expect
     );
     console.log('✓ stringify test %d', index);
   } catch(e) {
     console.log('\033[31m✗\033[39m stringify test %d', index);
-    console.log('  Expected: ' + e.expected);
-    console.log('  Got: ' + e.actual);
-  } 
+    console.log('  Expected: ' + util.inspect(e.expected));
+    console.log('  Got: ' + util.inspect(e.actual));
+    console.log('  Using: ' + e.operator);
+    console.log('  ' + e.message);
+  }
+});
+
+querystringTestCases.forEach(function(testCase,index) {
+  testCase.params = testCase.params || ['&','=','[',']'];
   
-  try {
-    assert.deepEqual(
-      testCase.object,
-      perry.parse.apply(this,(function() {
-        var params = [testCase.parse];
-        testCase.params.forEach(function(param) {
-          params.push(param);
-        });
-        return params;
-      })())
-    );
-    console.log('✓ parse test %d', index);
-  } catch(e) {
-    console.log('\033[31m✗\033[39m parse test %d', index);
-    console.log('  Expected: ' + e.expected);
-    console.log('  Got: ' + e.actual);
+  if(testCase.parse) {
+    try {
+      assert.deepEqual(
+        perry.parse.apply(this,(function() {
+          var params = [testCase.parse];
+          testCase.params.forEach(function(param) {
+            params.push(param);
+          });
+          return params;
+        })()),
+        testCase.object
+      );
+      console.log('✓ parse test %d', index);
+    } catch(e) {
+      console.log('\033[31m✗\033[39m parse test %d', index);
+      console.log('  Expected: ' + util.inspect(e.expected));
+      console.log('  Got: ' + util.inspect(e.actual));
+      console.log('  Using: ' + e.operator);
+      console.log('  ' + e.message);
+    }
   }
 });

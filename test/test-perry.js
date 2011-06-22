@@ -51,7 +51,7 @@ var querystringTestCases = [
   },{
     parse: 'foo[1][second][third]=123456',
     expect: 'foo[1][second][third]=123456',
-    object: {'foo':{'1':{'second':{'third':123456}}}}
+    object: {'foo':[undefined,{'second':{'third':123456}}]}
   },{
     parse: 'foo[0]=zero&foo[1]=one&foo[2]=two',
     expect: 'foo[0]=zero&foo[1]=one&foo[2]=two',
@@ -75,7 +75,7 @@ var querystringTestCases = [
   },{
     parse: 'foo[2]=nue&foo[4]=nue&foo[7]=nue',
     expect: 'foo[2]=nue&foo[4]=nue&foo[7]=nue',
-    object: {'foo':{'2':'nue','4':'nue','7':'nue'}}
+    object: {'foo':[undefined,undefined,'nue',undefined,'nue',undefined,undefined,'nue']}
   },{
     parse: 'foo[]=1&bar[]=2',
     expect: 'foo[0]=1&bar[0]=2',
@@ -92,6 +92,10 @@ var querystringTestCases = [
     parse: 'foo[][bar]=0&foo[][meh]=1',
     expect: 'foo[0][bar]=0&foo[1][meh]=1',
     object: {'foo':[{'bar':0},{'meh':1}]}
+  },{
+    parse: 'foo[0]=meh&foo[2]=bar',
+    expect: 'foo[0]=meh&foo[2]=bar',
+    object: {'foo':['meh',undefined,'bar']}
   },{
     parse: 'glossary[title]=example glossary&glossary[GlossDiv][title]=S&glossary[GlossDiv][GlossList][GlossEntry][ID]=SGML&glossary[GlossDiv][GlossList][GlossEntry][SortAs]=SGML&glossary[GlossDiv][GlossList][GlossEntry][GlossTerm]=Standard Generalized Markup Language&glossary[GlossDiv][GlossList][GlossEntry][Acronym]=SGML&glossary[GlossDiv][GlossList][GlossEntry][Abbrev]=ISO 8879:1986&glossary[GlossDiv][GlossList][GlossEntry][GlossDef][para]=A meta-markup language, used to create markup languages such as DocBook.&glossary[GlossDiv][GlossList][GlossEntry][GlossDef][GlossSeeAlso][]=GML&glossary[GlossDiv][GlossList][GlossEntry][GlossDef][GlossSeeAlso][]=XML&glossary[GlossDiv][GlossList][GlossEntry][GlossSee]=markup',
     expect: 'glossary[title]=example%20glossary&glossary[GlossDiv][title]=S&glossary[GlossDiv][GlossList][GlossEntry][ID]=SGML&glossary[GlossDiv][GlossList][GlossEntry][SortAs]=SGML&glossary[GlossDiv][GlossList][GlossEntry][GlossTerm]=Standard%20Generalized%20Markup%20Language&glossary[GlossDiv][GlossList][GlossEntry][Acronym]=SGML&glossary[GlossDiv][GlossList][GlossEntry][Abbrev]=ISO%208879%3A1986&glossary[GlossDiv][GlossList][GlossEntry][GlossDef][para]=A%20meta-markup%20language%2C%20used%20to%20create%20markup%20languages%20such%20as%20DocBook.&glossary[GlossDiv][GlossList][GlossEntry][GlossDef][GlossSeeAlso][0]=GML&glossary[GlossDiv][GlossList][GlossEntry][GlossDef][GlossSeeAlso][1]=XML&glossary[GlossDiv][GlossList][GlossEntry][GlossSee]=markup',

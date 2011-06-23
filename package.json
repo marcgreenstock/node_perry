@@ -1,8 +1,8 @@
 {
   "name": "perry",
   "description": "Multi-dimensional query string parser and generator",
-  "version": "0.1.0",
-  "keywords": ["multi-dimension","querystring","parser","generator"],
+  "version": "0.1.1",
+  "keywords": ["multi-dimension", "querystring", "parser", "generator"],
   "engines": { "node": "*" },
   "main": "index",
   "author": "Marc Greenstock <hello@marcgreenstock.com> (http://marcgreenstock.com)",
@@ -13,5 +13,5 @@
   "licenses": [{
     "type": "Creative Commons",
     "url": "http://creativecommons.org/licenses/by-sa/3.0/"
-  }],
+  }]
 }

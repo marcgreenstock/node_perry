@@ -185,6 +185,10 @@ var querystringTestCases = [
       }
     }
   },{
+    parse: 'foo%5B%5D=bar',
+    expect: 'foo[0]=bar',
+    object: {'foo':['bar']}
+  },{
     parse: 'foo:bar',
     expect: 'foo:bar',
     object: {'foo': 'bar'},

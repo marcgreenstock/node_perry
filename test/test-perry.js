@@ -189,6 +189,10 @@ var querystringTestCases = [
     expect: 'foo[0]=bar',
     object: {'foo':['bar']}
   },{
+    parse: 'bob%5Bbim%5D=abc&bob%5Bboo%5D=2011-07-01&bob%5Bbap%5D=D20&bob%5Bbip%5D=%5B%5D',
+    expect: 'bob[bim]=abc&bob[boo]=2011-07-01&bob[bap]=D20&bob[bip]=%5B%5D',
+    object: {'bob':{'bim':'abc','boo':'2011-07-01','bap':'D20','bip':'[]'}}
+  },{
     parse: 'foo:bar',
     expect: 'foo:bar',
     object: {'foo': 'bar'},

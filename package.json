@@ -1,7 +1,7 @@
 {
   "name": "perry",
   "description": "Multi-dimensional query string parser and generator",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "keywords": ["multi-dimension", "querystring", "parser", "generator"],
   "engines": { "node": "*" },
   "main": "index",

@@ -227,6 +227,9 @@ var querystringTestCases = [
   },{
     expect: 'regexp=%2F.%2Fg',
     object: {regexp: new RegExp('.', 'g')}
+  }, {
+    expect: '',
+    object: ''
   }
 ];
 
